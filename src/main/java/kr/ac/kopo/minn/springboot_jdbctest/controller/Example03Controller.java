@@ -40,14 +40,15 @@ public class Example03Controller {
     }
 
     @PostMapping("/upadate")
-    public String upadate(@ModelAttribute("member")Member member) {
+    public String update(@ModelAttribute("member")Member member) {
         repository.updateMethod(member.getName(), member.getAge(), member.getEmail(), member.getId());
         return "redirect:/exam03";
     }
 
-    @GetMapping("/delete{id}")
-    public String deleteMethod(@PathVariable(name = "id")int id) {
+    @GetMapping("/delete/{id}")
+    public String deleteMethod(@PathVariable("id") int id) {
         repository.deleteMethod(id);
         return "redirect:/exam03";
     }
+
 }
